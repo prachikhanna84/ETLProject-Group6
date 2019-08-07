@@ -1,56 +1,63 @@
-CREATE TABLE humidity_pivot(
-	year INT,
-	datetime INT,
-	city VARCHAR,
-	humidity INT
+drop table humidity;
+drop table description;
+drop table pressure;
+drop table temperature;
+drop table wind_direction;
+drop table wind_speed;
+
+drop table city;
+
+CREATE TABLE public.city
+(
+   city text Primary Key ,
+   country text ,
+   latitude numeric,
+   longitude numeric
+)
+;
+CREATE TABLE public.humidity
+(
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   humidity numeric
 );
-SELECT * FROM humidity_pivot;
-_______________________________________________________
 
-CREATE TABLE pressure_pivot
+CREATE TABLE public.pressure
 (
-  	year INT,
-	datetime INT,
-	city VARCHAR,
-	pressure INT
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   pressure numeric
 );
 
-SELECT * FROM pressure_pivot;
-___________________________________________________________
-
-CREATE TABLE temperature_pivot
+CREATE TABLE public.temperature
 (
-  	year INT,
-	datetime DEC,
-	city VARCHAR,
-	temperature DEC
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   temperature numeric
 );
-SELECT * FROM temperature_pivot
-___________________________________________________
-CREATE TABLE weather_description_pivot
-(
-  	year INT,
-	datetime DEC,
-	city VARCHAR,
-	description VARCHAR
-); 
-SELECT * FROM weather_description_pivot
-___________________________________________________
-CREATE TABLE wind_direction_pivot
-(
-  	year INT,
-	datetime DEC,
-	city VARCHAR,
-	direction VARCHAR
-); 
-SELECT * FROM wind_direction_pivot;
-___________________________________________________
-CREATE TABLE wind_speed_pivot
-(
-  	year INT,
-	datetime INT,
-	city VARCHAR,
-	speed INT
-); 
 
-SELECT * FROM wind_speed_pivot;
+CREATE TABLE public.description
+(
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   description numeric
+);
+CREATE TABLE public.wind_direction
+(
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   wind_direction numeric
+);
+
+CREATE TABLE public.wind_speed
+(
+   year integer,
+   datetime date,
+   city text REFERENCES city,
+   wind_speed numeric
+);
