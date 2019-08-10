@@ -19,14 +19,14 @@ CREATE TABLE public.humidity
   datetime text,
   city text REFERENCES city,
   humidity numeric,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 );
 CREATE TABLE public.pressure
 (
   datetime text,
   city text REFERENCES city,
   pressure numeric,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 
 );
 CREATE TABLE public.temperature
@@ -34,7 +34,7 @@ CREATE TABLE public.temperature
   datetime text,
   city text REFERENCES city,
   temperature numeric,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 
 );
 CREATE TABLE public.description
@@ -42,7 +42,7 @@ CREATE TABLE public.description
   datetime text,
   city text REFERENCES city,
   description text,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 
 );
 CREATE TABLE public.wind_direction
@@ -50,7 +50,7 @@ CREATE TABLE public.wind_direction
   datetime text,
   city text REFERENCES city,
   wind_direction text,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 
 );
 CREATE TABLE public.wind_speed
@@ -58,7 +58,7 @@ CREATE TABLE public.wind_speed
   datetime text,
   city text REFERENCES city,
   wind_speed numeric,
-  primary key (datetime,city)
+  primary key (datetime,city)	
 
 );
 
